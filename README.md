@@ -160,7 +160,6 @@ def transpose(mat: list[list[float | int]]) -> list[list]:
         for stolb in range(len(mat[strok])):
             newmat[stolb][strok] = mat[strok][stolb]
     return newmat
-
 print(transpose())
 ```
 ![Вывод задание 2.1](./images/lab02/ex.2.1.png)
@@ -177,7 +176,6 @@ def row_sums(mat: list[list[float | int]]) -> list[float]:
     for i in mat:
         sums.append(sum(i))
     return sums
-
 print(row_sums())
 ```
 ![Вывод задание 2.2](./images/lab02/ex.2.2.png)
@@ -193,7 +191,6 @@ def col_sums(mat: list[list[float | int]]) -> list[float]:
     sums = []
     row_len = len(mat[0])
     return [sum(row[j] for row in mat) for j in range(row_len)]
-
 print(col_sums())
 ```
 ![Вывод задание 2.3](./images/lab02/ex.2.3.png)
@@ -203,7 +200,6 @@ print(col_sums())
 
 ```python
 def format_record(rec: tuple[str, str, float]) -> str:
-    
     name_processing = rec[0].strip().split()
     final_name = ''
     if len(name_processing) == 1:
@@ -214,20 +210,16 @@ def format_record(rec: tuple[str, str, float]) -> str:
         final_name = f"{name_processing[0][0].upper()}{name_processing[0][1:]} {name_processing[1][0:1].upper()}. {name_processing[2][0:1].upper()}."
     else:
         return ValueError
-    
     group = ''
     group_processing = rec[1].strip()
     if group_processing == '':
         return ValueError
     else:
         group = group_processing
-
     gpa = float(rec[2])
     if not(isinstance(gpa, float)):
         return TypeError
-    
     return f"{final_name}, гр. {group}, GPA: {gpa:.2f}"   
-
 print(format_record(()))
 ```
 ![Вывод задание 3](./images/lab02/ex.3.png)
