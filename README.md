@@ -107,7 +107,7 @@ def min_max(nums: list[float | int]) -> tuple[float | int, float | int]:
     return tuple([mn, mx])
 print(min_max())
 ```
-![Вывод задание 1.1](./images/lab02/ex.1.1)
+![Вывод задание 1.1](./images/lab02/ex.1.1.png)
 
 # 2 unique_sorted
 
@@ -117,7 +117,7 @@ def unique_sorted(nums1: list[float | int]) -> list[float | int]:
     return sorted(unique_nums)
 print(unique_sorted())
 ```
-![Вывод задание 1.2](./images/lab02/ex.1.2)
+![Вывод задание 1.2](./images/lab02/ex.1.2.png)
 
 # 3 flatten
 
@@ -132,7 +132,7 @@ def flatten(mat: list[list | tuple]) -> list:
     return arr 
 print(flatten())
 ```
-![Вывод задание 1.3](./images/lab02/ex.1.3)
+![Вывод задание 1.3](./images/lab02/ex.1.3.png)
 
 
 # Задание 2 -> matrix
@@ -163,7 +163,7 @@ def transpose(mat: list[list[float | int]]) -> list[list]:
 
 print(transpose())
 ```
-![Вывод задание 2.1](./images/lab02/ex.2.1)
+![Вывод задание 2.1](./images/lab02/ex.2.1.png)
 
 # 2 row_sums
 
@@ -180,7 +180,7 @@ def row_sums(mat: list[list[float | int]]) -> list[float]:
 
 print(row_sums())
 ```
-![Вывод задание 2.2](./images/lab02/ex.2.2)
+![Вывод задание 2.2](./images/lab02/ex.2.2.png)
 
 # 3 col_sums
 
@@ -196,7 +196,7 @@ def col_sums(mat: list[list[float | int]]) -> list[float]:
 
 print(col_sums())
 ```
-![Вывод задание 2.3](./images/lab02/ex.2.3)
+![Вывод задание 2.3](./images/lab02/ex.2.3.png)
 
 
 # Задание 3 -> tuples
@@ -230,4 +230,4 @@ def format_record(rec: tuple[str, str, float]) -> str:
 
 print(format_record(()))
 ```
-![Вывод задание 3](./images/lab02/ex.3)
+![Вывод задание 3](./images/lab02/ex.3.png)
