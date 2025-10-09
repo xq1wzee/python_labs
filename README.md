@@ -190,3 +190,9 @@ def format_record(rec: tuple[str, str, float]) -> str:
 print(format_record(()))
 ```
 ![Вывод задание 3](./images/lab02/ex.3.png)
+
+---
+
+# ЛАБОРАТОРНАЯ РАБОТА №3
+
+# Задание A
