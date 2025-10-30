@@ -196,7 +196,7 @@ print(format_record(()))
 # ЛАБОРАТОРНАЯ РАБОТА №3
 
 # Задание A
-
+###  Запуск из терминала: `python3 -m src.lab03.A`
 ```python
 from src.lib.text import normalize, tokenize, top_n, count_freq
 
@@ -220,6 +220,8 @@ print(top_n(count_freq(["bb", "aa", "bb", "aa", "cc"]), n=2))
 ![Вывод задание A](./images/lab03/ex_A.png)
 
 # Задание B
+###  Запуск из терминала: `python3 -m src.lab03.B < src/lab03/input.txt`
+
 
 ```python
 import sys
