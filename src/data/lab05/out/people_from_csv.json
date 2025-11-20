@@ -28,5 +28,10 @@
     "name": "Polina",
     "age": "18",
     "city": "Moscow"
+  },
+  {
+    "name": "Alex",
+    "age": "18",
+    "city": "Moscow"
   }
 ]
