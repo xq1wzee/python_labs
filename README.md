@@ -345,7 +345,7 @@ def csv_to_json(csv_path: str, json_path: str) -> None:
 json_to_csv("src/data/lab05/samples/people.json", "src/data/lab05/out/people_from_json.csv")
 csv_to_json("src/data/lab05/samples/people.csv", "src/data/lab05/out/people_from_csv.json")
 ```
-![Вывод задание A](./images/lab05/terminal.png)
+![Вывод задание A](./images/lab05/json_csv.png)
 
 ## Выполнение:
 
