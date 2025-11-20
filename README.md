@@ -405,7 +405,7 @@ csv_to_xlsx("src/data/lab05/samples/cities.csv", "src/data/lab05/out/cities.xlsx
 #### Перевод `CSV -> XLSX`:
 
 Исходный `src/data/lab05/samples/cities.csv`
-![Входной cities_xlsx](./images/lab05/sample/people_csv.png)
+![Входной cities_xlsx](./images/lab05/sample/cities_csv.png)
 
 Результат перевода в XSLX -> `src/data/lab05/out/cities_xlsx`:
 ![Результат перевода people_from_csv](./images/lab05/out/cities_xlsx.png)
