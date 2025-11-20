@@ -398,5 +398,14 @@ def csv_to_xlsx(csv_path: str, xlsx_path: str) -> None:
 
 csv_to_xlsx("src/data/lab05/samples/cities.csv", "src/data/lab05/out/cities.xlsx")
 ```
-![Вывод задание B](./images/lab05/terminal.png)
+![Вывод задание B](./images/lab05/csv_xlsx.png)
 
+## Выполнение:
+
+#### Перевод `CSV -> XLSX`:
+
+Исходный `src/data/lab05/samples/cities.xlsx`
+![Входной cities_xlsx](./images/lab05/sample/people_csv.png)
+
+Результат перевода в XSLX -> `src/data/lab05/out/cities.xlsx`:
+![Результат перевода people_from_csv](./images/lab05/out/done_city_xlsx.png)
