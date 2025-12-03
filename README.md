@@ -478,7 +478,7 @@ if __name__ == "__main__":
   - `csv2json --in data/samples/people.csv --out data/out/people.json`  
   - `csv2xlsx --in data/samples/people.csv --out data/out/people.xlsx`
 
-  ```python
+```python
 import argparse
 from src.lab05.json_csv import json_to_csv, csv_to_json
 from src.lab05.csv_xlsx import csv_to_xlsx
@@ -510,7 +510,7 @@ def main():
 
 if __name__ == "__main__":
     main()
-    ```
+```
 ![Вывод задание B](./images/lab06/,,,,,,,,.png)
 
 ---
