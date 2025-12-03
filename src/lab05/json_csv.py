@@ -31,5 +31,5 @@ def csv_to_json(csv_path: str, json_path: str) -> None:
     with open(json_path,"w", encoding="utf-8") as f:
         json.dump(rows, f, ensure_ascii=False, indent=2)
 
-json_to_csv("src/data/lab05/samples/people.json", "src/data/lab05/out/people_from_json.csv")
-csv_to_json("src/data/lab05/samples/people.csv", "src/data/lab05/out/people_from_csv.json")
+json_to_csv("src/data/samples/people.json", "src/data/out/people_from_json.csv")
+csv_to_json("src/data/samples/people.csv", "src/data/out/people_from_csv.json")
