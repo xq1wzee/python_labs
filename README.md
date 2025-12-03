@@ -519,7 +519,7 @@ if __name__ == "__main__":
   - `python3 -m src.lab06.cli_text --help`
 ![Задание A](./images/lab06/A1.png)
   - `python3 -m src.lab06.cli_text cat --input data/samples/people.txt`
-![Задание A](./images/lab06/A2.png)
+![Задание A](./images/lab06/A22.png)
   - `python3 -m src.lab06.cli_text cat --input data/samples/people.txt -n`
 ![Задание A](./images/lab06/A3.png)
   - `python3 -m src.lab06.cli_text stats --input data/samples/people.txt --top 5`
