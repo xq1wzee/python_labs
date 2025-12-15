@@ -1,31 +1,67 @@
 import argparse
-from src.lab05.json_csv import json_to_csv, csv_to_json
+
 from src.lab05.csv_xlsx import csv_to_xlsx
+from src.lab05.json_csv import csv_to_json, json_to_csv
+
 
 def main():
-    parser = argparse.ArgumentParser(description="Конвертеры данных")
-    sub = parser.add_subparsers(dest="cmd", required=True)
 
-    p1 = sub.add_parser("json2csv", help="JSON -> CSV")
-    p1.add_argument("--in", dest="input", required=True)
-    p1.add_argument("--out", dest="output", required=True)
+    parser = argparse.ArgumentParser(description="CLI-утилиты лабораторной №6")
+    subparsers = parser.add_subparsers(dest="command")
 
-    p2 = sub.add_parser("csv2json", help="CSV -> JSON")
-    p2.add_argument("--in", dest="input", required=True)
-    p2.add_argument("--out", dest="output", required=True)
+    # --- json2csv ---
+    json2csv_parser = subparsers.add_parser(
+        "json2csv", help="Конвертировать JSON в CSV"
+    )
+    json2csv_parser.add_argument(
+        "--in", dest="input", required=True, help="Путь к JSON-файлу"
+    )
+    json2csv_parser.add_argument(
+        "--out", dest="output", required=True, help="Путь для CSV-файла"
+    )
 
-    p3 = sub.add_parser("csv2xlsx", help="CSV -> XLSX")
-    p3.add_argument("--in", dest="input", required=True)
-    p3.add_argument("--out", dest="output", required=True)
+    # --- csv2json ---
+    csv2json_parser = subparsers.add_parser(
+        "csv2json", help="Конвертировать CSV в JSON"
+    )
+    csv2json_parser.add_argument(
+        "--in", dest="input", required=True, help="Путь к CSV-файлу"
+    )
+    csv2json_parser.add_argument(
+        "--out", dest="output", required=True, help="Путь для JSON-файла"
+    )
+
+    # --- csv2xlsx ---
+    csv2xlsx_parser = subparsers.add_parser(
+        "csv2xlsx", help="Конвертировать CSV в XLSX"
+    )
+    csv2xlsx_parser.add_argument(
+        "--in", dest="input", required=True, help="Путь к CSV-файлу"
+    )
+    csv2xlsx_parser.add_argument(
+        "--out", dest="output", required=True, help="Путь для XLSX-файла"
+    )
 
     args = parser.parse_args()
 
-    if args.cmd == "json2csv":
-        json_to_csv(args.input, args.output)
-    elif args.cmd == "csv2json":
-        csv_to_json(args.input, args.output)
-    elif args.cmd == "csv2xlsx":
-        csv_to_xlsx(args.input, args.output)
+    if args.command == "json2csv":
+        json_to_csv(
+            json_path=args.input,
+            csv_path=args.output,
+        )
+
+    elif args.command == "csv2json":
+        csv_to_json(
+            csv_path=args.input,
+            json_path=args.output,
+        )
+
+    elif args.command == "csv2xlsx":
+        csv_to_xlsx(
+            csv_path=args.input,
+            xlsx_path=args.output,
+        )
+
 
 if __name__ == "__main__":
     main()

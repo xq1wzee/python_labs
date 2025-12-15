@@ -6,7 +6,7 @@ def json_to_csv(json_path: str, csv_path: str) -> None:
     if jp.suffix != ".json":
         raise ValueError("Неверный тип файла")
     if not jp.exists():
-        raise FileNotFoundError("Файл не найден")
+        raise FileNotFoundError(f"Файл {json_path} не найден")
     with open(json_path,"r", encoding="utf-8") as f:
         data = json.load(f)
     if len(data)==0:
@@ -31,5 +31,5 @@ def csv_to_json(csv_path: str, json_path: str) -> None:
     with open(json_path,"w", encoding="utf-8") as f:
         json.dump(rows, f, ensure_ascii=False, indent=2)
 
-json_to_csv("src/data/samples/people.json", "src/data/out/people_from_json.csv")
-csv_to_json("src/data/samples/people.csv", "src/data/out/people_from_csv.json")
+json_to_csv("data/samples/people.json", "data/out/people_from_json.csv")
+csv_to_json("data/samples/people.csv", "data/out/people_from_csv.json")

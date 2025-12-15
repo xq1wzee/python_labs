@@ -418,11 +418,12 @@ csv_to_xlsx("src/data/lab05/samples/cities.csv", "src/data/lab05/out/cities.xlsx
 
 # ЛАБОРАТОРНАЯ РАБОТА №6
 
-# Задание А — модуль `src/lab06/cli_text.py`
+## Задание А — модуль `src/lab06/cli_text.py`
 **Реализую модуль с подкомандами:** 
   - `stats --input <txt> [--top 5]` — анализ частот слов в тексте (использовны функции из `lab04`);
   - `cat --input <path> [-n]` — вывод содержимого файла построчно (с нумерацией при `-n`).
 
+## Выполнение:
 ```python
 import argparse
 from pathlib import Path
@@ -469,15 +470,27 @@ def main():
 if __name__ == "__main__":
     main()
 ```
-![Вывод задание A](./images/lab06/,,,,,,,,.png)
 
+## Результат:
+1. Вывод содержимого файла построчно (с нумерацией при `-n`).
+Команда:
+`python3 -m src.lab06.cli_text cat --input data/samples/cities.csv -n`
 
-# Задание B — модуль `src/lab06/cli_convert.py`
+![Output 6.A](./images/lab06/lab06_1.png)
+
+2. Анализ частот слов в тексте. 
+Команда:
+`python3 -m src.lab06.cli_text stats --input src/lab03/input.txt --top 5`
+
+![Output 6.A2](./images/lab06/lab06_2.png)
+
+## Задание B — модуль `src/lab06/cli_convert.py`
 **Реализую модуль с подкомандами:** 
   - `json2csv --in data/samples/people.json --out data/out/people.csv`  
   - `csv2json --in data/samples/people.csv --out data/out/people.json`  
   - `csv2xlsx --in data/samples/people.csv --out data/out/people.xlsx`
 
+## Выполнение:
 ```python
 import argparse
 from src.lab05.json_csv import json_to_csv, csv_to_json
@@ -511,17 +524,220 @@ def main():
 if __name__ == "__main__":
     main()
 ```
-![Вывод задание B](./images/lab06/,,,,,,,,.png)
+
+## Результат:
+1. **Конвертация `JSON -> CSV`**
+
+ Команда:
+`python3 -m src.lab06.cli_convert json2csv --in data/samples/people.json --out data/out/people_from_json.csv`
+ 
+ Исходная директория `data/samples/people.json`:
+![people.json](./images/lab06/lab06_3.png)
+ 
+ Результат в `data/out/people_from_json.csv`:
+![people_from_json.csv](./images/lab06/lab06_4.png)
+
+2. **Аналогично и для `csv2json` & `csv2xlsx`**:
+ 
+ -`python3 -m src.lab06.cli_convert csv2json --in data/samples/people.csv --out data/out/people_from_csv.json`
+ 
+ -`python3 -m src.lab06.cli_convert csv2xlsx --in data/samples/cities.csv --out data/out/cities.xlsx`
 
 ---
 
-# Задание А:
-  - `python3 -m src.lab06.cli_text --help`
-![Задание A](./images/lab06/A1.png)
-  - `python3 -m src.lab06.cli_text cat --input data/samples/people.txt`
-![Задание A](./images/lab06/A22.png)
-  - `python3 -m src.lab06.cli_text cat --input data/samples/people.txt -n`
-![Задание A](./images/lab06/A3.png)
-  - `python3 -m src.lab06.cli_text stats --input data/samples/people.txt --top 5`
-![Задание A](./images/lab06/A4.png)
+
+# # ЛАБОРАТОРНАЯ РАБОТА №7
+
+## Задание A — тесты для `src/lib/text.py`
+**Файл:** `test_text.py`  
+**Написать автотесты для всех публичных функций модуля:** 
+  - `normalize(text: str) -> str`
+  - `tokenize(text: str) -> list[str]`
+  - `count_freq(tokens: list[str]) -> dict[str, int]`
+  - `top_n(freq: dict[str, int], n: int) -> list[tuple[str, int]]`
+
+```
+import csv
+import json
+from pathlib import Path
+
+import pytest
+
+from src.lib.json_csv import csv_to_json, json_to_csv
+
+
+def write_json(path: Path, obj):
+    path.write_text(json.dumps(obj, ensure_ascii=False, indent=2), encoding="utf-8")
+
+
+def read_csv_rows(path: Path):
+    with path.open(encoding="utf-8") as f:
+        return list(csv.DictReader(f))
+
+
+def test_json_to_csv_roundtrip(tmp_path: Path):
+    src = tmp_path / "people.json"
+    dst = tmp_path / "people.csv"
+    data = [{"name": "Alice", "age": 22}, {"name": "Bob", "age": 25}]
+    write_json(src, data)
+
+    json_to_csv(str(src), str(dst))
+    rows = read_csv_rows(dst)
+    assert len(rows) == 2
+    assert set(rows[0]) >= {"name", "age"}
+
+
+def test_csv_to_json_roundtrip(tmp_path: Path):
+    src = tmp_path / "people.csv"
+    dst = tmp_path / "people.json"
+    src.write_text("name,age\nAlice,22\nBob,25\n", encoding="utf-8")
+
+    csv_to_json(str(src), str(dst))
+    obj = json.loads(dst.read_text(encoding="utf-8"))
+    assert isinstance(obj, list) and len(obj) == 2
+    assert set(obj[0]) == {"name", "age"}
+
+
+def test_json_to_csv_empty_raises(tmp_path: Path):
+    src = tmp_path / "empty.json"
+    src.write_text("[]", encoding="utf-8")
+    with pytest.raises(ValueError):
+        json_to_csv(str(src), str(tmp_path / "out.csv"))
+
+
+def test_csv_to_json_no_header_raises(tmp_path: Path):
+    src = tmp_path / "bad.csv"
+    src.write_text("", encoding="utf-8")
+    with pytest.raises(ValueError):
+        csv_to_json(str(src), str(tmp_path / "out.json"))
+
+
+def test_missing_file_raises():
+    with pytest.raises(FileNotFoundError):
+        csv_to_json("nope.csv", "out.json")
+```
+
+---
+
+## Задание B — Тесты для `src/lab05/json_csv.py`
+**Файл:** `test_json_csv.py`  
+**Написать автотесты для функций:** 
+  - `json_to_csv(src_path: str, dst_path: str)`
+  - `csv_to_json(src_path: str, dst_path: str)`
+
+```
+import csv
+import json
+from pathlib import Path
+
+import pytest
+
+from src.lib.json_csv import csv_to_json, json_to_csv
+
+
+def write_json(path: Path, obj):
+    path.write_text(json.dumps(obj, ensure_ascii=False, indent=2), encoding="utf-8")
+
+
+def read_csv_rows(path: Path):
+    with path.open(encoding="utf-8") as f:
+        return list(csv.DictReader(f))
+
+
+def test_json_to_csv_roundtrip(tmp_path: Path):
+    src = tmp_path / "people.json"
+    dst = tmp_path / "people.csv"
+    data = [{"name": "Alice", "age": 22}, {"name": "Bob", "age": 25}]
+    write_json(src, data)
+
+    json_to_csv(str(src), str(dst))
+    rows = read_csv_rows(dst)
+    assert len(rows) == 2
+    assert set(rows[0]) >= {"name", "age"}
+
+
+def test_csv_to_json_roundtrip(tmp_path: Path):
+    src = tmp_path / "people.csv"
+    dst = tmp_path / "people.json"
+    src.write_text("name,age\nAlice,22\nBob,25\n", encoding="utf-8")
+
+    csv_to_json(str(src), str(dst))
+    obj = json.loads(dst.read_text(encoding="utf-8"))
+    assert isinstance(obj, list) and len(obj) == 2
+    assert set(obj[0]) == {"name", "age"}
+
+
+def test_json_to_csv_empty_raises(tmp_path: Path):
+    src = tmp_path / "empty.json"
+    src.write_text("[]", encoding="utf-8")
+    with pytest.raises(ValueError):
+        json_to_csv(str(src), str(tmp_path / "out.csv"))
+
+
+def test_csv_to_json_no_header_raises(tmp_path: Path):
+    src = tmp_path / "bad.csv"
+    src.write_text("", encoding="utf-8")
+    with pytest.raises(ValueError):
+        csv_to_json(str(src), str(tmp_path / "out.json"))
+
+
+def test_missing_file_raises():
+    with pytest.raises(FileNotFoundError):
+        csv_to_json("nope.csv", "out.json")
+```
+
+### pyproject.toml
+```toml
+[tool.black]
+line-length = 88
+target-version = ["py311"]
+exclude = """
+(
+    /venv
+  | /.venv
+  | /data
+  | /images
+)
+"""
+
+[tool.ruff]
+line-length = 88
+target-version = "py311"
+extend-exclude = ["venv", ".venv", "data", "images"]
+
+[tool.ruff.lint]
+select = ["E", "F", "I"]
+ignore = ["E501"]
+```
+
+### pytest.ini
+```ini
+[pytest]
+addopts = -q
+testpaths = tests
+```
+
+## Результат работы:
+
+### Black
+
+```
+black --check .
+```
+
+![Картинка 5.2.1](../../images/lab07/black_check.png)
+
+### Ruff
+
+```
+ruff check .
+```
+
+![Картинка 5.2.1](../../images/lab07/ruff_check.png)
+
+## Tests Report
+
+![Картинка 5.2.1](../../images/lab07/test_report.png)
+
+
 
