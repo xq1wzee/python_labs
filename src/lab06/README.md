@@ -56,12 +56,12 @@ if __name__ == "__main__":
 1. Вывод содержимого файла построчно (с нумерацией при `-n`).
 Команда:
 `python3 -m src.lab06.cli_text cat --input data/samples/cities.csv -n`
-![Output 6.A](./images/lab06/lab06_1.png)
+![Output 6.A](../../images/lab06/lab06_1.png)
 
 2. Анализ частот слов в тексте. 
 Команда:
 `python3 -m src.lab06.cli_text stats --input src/lab03/input.txt --top 5`
-![Output 6.A2](./images/lab06/lab06_2.png)
+![Output 6.A2](../../images/lab06/lab06_2.png)
 
 # Задание B — модуль `src/lab06/cli_convert.py`
 **Реализую модуль с подкомандами:** 
@@ -110,10 +110,10 @@ if __name__ == "__main__":
 `python3 -m src.lab06.cli_convert json2csv --in data/samples/people.json --out data/out/people_from_json.csv`
  
  Исходная директория `data/samples/people.json`:
-![people.json](./images/lab06/lab06_3.png)
+![people.json](../../images/lab06/lab06_3.png)
  
  Результат в `data/out/people_from_json.csv`:
-![people_from_json.csv](./images/lab06/lab06_4.png)
+![people_from_json.csv](../../images/lab06/lab06_4.png)
 
 2. **Аналогично и для `csv2json` & `csv2xlsx`**:
 

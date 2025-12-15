@@ -84,11 +84,11 @@ def students_from_json(path):
 ```
 
 ## Результаты тестов:
-![Test](./images/lab08/1.png)
+![Test](../../images/lab08/1.png)
 
-![Test](./images/lab08/2.png)
+![Test](../../images/lab08/2.png)
 
-![Test](./images/lab08/3.png)
+![Test](../../images/lab08/3.png)
 
 
 

@@ -22,7 +22,7 @@ print(tokenize("emoji 😀 не слово"))
 print(top_n(count_freq(["a", "b", "a", "c", "b", "a"]), n=2))
 print(top_n(count_freq(["bb", "aa", "bb", "aa", "cc"]), n=2))
 ```
-![Вывод задание A](./images/lab03/ex_A.png)
+![Вывод задание A](../../images/lab03/ex_A.png)
 
 # Задание B
 ###  Запуск из терминала: `python3 -m src.lab03.B < src/lab03/input.txt`
@@ -41,4 +41,4 @@ print("Топ-5:")
 for w, c in top:
     print(f"{w}:{c}")
 ```
-![Вывод задание B](./images/lab03/ex_B.png)
+![Вывод задание B](../../images/lab03/ex_B.png)

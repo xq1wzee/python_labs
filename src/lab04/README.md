@@ -59,7 +59,7 @@ for word, count in top_n(freq, 5):
 Привет, мир!!! Привет!
 
 ### Вывод в терминале:
-![Вывод задание 4](./images/lab04/terminal.png)
+![Вывод задание 4](../../images/lab04/terminal.png)
 
 ### Отчет CSV -> `data/lab04/report.csv`:
-![Вывод отчет CSV](./images/lab04/report.png)
+![Вывод отчет CSV](../../images/lab04/report.png)

@@ -38,25 +38,25 @@ def csv_to_json(csv_path: str, json_path: str) -> None:
 json_to_csv("src/data/lab05/samples/people.json", "src/data/lab05/out/people_from_json.csv")
 csv_to_json("src/data/lab05/samples/people.csv", "src/data/lab05/out/people_from_csv.json")
 ```
-![Вывод задание A](./images/lab05/json_csv.png)
+![Вывод задание A](../../images/lab05/json_csv.png)
 
 ## Выполнение:
 
 #### Перевод `CSV -> JSON`:
 
 Исходный `src/data/lab05/samples/people.csv`
-![Входной people_csv](./images/lab05/sample/people_csv.png)
+![Входной people_csv](../../images/lab05/sample/people_csv.png)
 
 Результат перевода в JSON -> `src/data/lab05/out/people_from_csv.json`:
-![Результат перевода people_from_csv](./images/lab05/out/people_from_csv.png)
+![Результат перевода people_from_csv](../../images/lab05/out/people_from_csv.png)
 
 #### Перевод `JSON -> CSV`:
 
 Исходный `src/data/lab05/samples/people.json`
-![Входной people_json](./images/lab05/sample/people_json.png)
+![Входной people_json](../../images/lab05/sample/people_json.png)
 
 Результат перевода в CSV -> `src/data/lab05/out/people_from_json.csv`:
-![Результат перевода people_from_json](./images/lab05/out/people_from_json.png)
+![Результат перевода people_from_json](../../images/lab05/out/people_from_json.png)
 
 # Задание B — CSV → XLSX
 ```python
@@ -87,14 +87,14 @@ def csv_to_xlsx(csv_path: str, xlsx_path: str) -> None:
 
 csv_to_xlsx("src/data/lab05/samples/cities.csv", "src/data/lab05/out/cities.xlsx")
 ```
-![Вывод задание B](./images/lab05/csv_xlsx.png)
+![Вывод задание B](../../images/lab05/csv_xlsx.png)
 
 ## Выполнение:
 
 #### Перевод `CSV -> XLSX`:
 
 Исходный `src/data/lab05/samples/cities.csv`
-![Входной cities_xlsx](./images/lab05/sample/cities_csv.png)
+![Входной cities_xlsx](../../images/lab05/sample/cities_csv.png)
 
 Результат перевода в XSLX -> `src/data/lab05/out/cities_xlsx`:
-![Результат перевода people_from_csv](./images/lab05/out/cities_xlsx.png)
+![Результат перевода people_from_csv](../../images/lab05/out/cities_xlsx.png)

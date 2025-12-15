@@ -17,7 +17,7 @@ def min_max(nums: list[float | int]) -> tuple[float | int, float | int]:
     return tuple([mn, mx])
 print(min_max())
 ```
-![Вывод задание 1.1](./images/lab02/ex.1.1.png)
+![Вывод задание 1.1](../../images/lab02/ex.1.1.png)
 
 # 2 unique_sorted
 ```python
@@ -26,7 +26,7 @@ def unique_sorted(nums1: list[float | int]) -> list[float | int]:
     return sorted(unique_nums)
 print(unique_sorted())
 ```
-![Вывод задание 1.2](./images/lab02/ex.1.2.png)
+![Вывод задание 1.2](../../images/lab02/ex.1.2.png)
 
 # 3 flatten
 ```python
@@ -40,7 +40,7 @@ def flatten(mat: list[list | tuple]) -> list:
     return arr 
 print(flatten())
 ```
-![Вывод задание 1.3](./images/lab02/ex.1.3.png)
+![Вывод задание 1.3](../../images/lab02/ex.1.3.png)
 
 
 # Задание 2 -> matrix
@@ -69,7 +69,7 @@ def transpose(mat: list[list[float | int]]) -> list[list]:
     return newmat
 print(transpose())
 ```
-![Вывод задание 2.1](./images/lab02/ex.2.1.png)
+![Вывод задание 2.1](../../images/lab02/ex.2.1.png)
 
 # 2 row_sums
 ```python
@@ -84,7 +84,7 @@ def row_sums(mat: list[list[float | int]]) -> list[float]:
     return sums
 print(row_sums())
 ```
-![Вывод задание 2.2](./images/lab02/ex.2.2.png)
+![Вывод задание 2.2](../../images/lab02/ex.2.2.png)
 
 # 3 col_sums
 ```python
@@ -98,7 +98,7 @@ def col_sums(mat: list[list[float | int]]) -> list[float]:
     return [sum(row[j] for row in mat) for j in range(row_len)]
 print(col_sums())
 ```
-![Вывод задание 2.3](./images/lab02/ex.2.3.png)
+![Вывод задание 2.3](../../images/lab02/ex.2.3.png)
 
 
 # Задание 3 -> tuples
@@ -126,4 +126,4 @@ def format_record(rec: tuple[str, str, float]) -> str:
     return f"{final_name}, гр. {group}, GPA: {gpa:.2f}"   
 print(format_record(()))
 ```
-![Вывод задание 3](./images/lab02/ex.3.png)
+![Вывод задание 3](../../images/lab02/ex.3.png)

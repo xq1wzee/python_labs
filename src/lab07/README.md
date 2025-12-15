@@ -171,13 +171,13 @@ testpaths = tests
 ```
 black --check .
 ```
-![black](./images/lab07/07_1.png)
+![black](../../images/lab07/07_1.png)
 
 ### Ruff
 ```
 ruff check .
 ```
-![ruff](./images/lab07/07_2.png)
+![ruff](../../images/lab07/07_2.png)
 
 ### Tests Report
-![test](./images/lab07/07_3.png)
+![test](../../images/lab07/07_3.png)
