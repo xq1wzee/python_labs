@@ -1,15 +1,17 @@
-import json, csv
+import csv
+import json
 from pathlib import Path
 
-def json_to_csv(json_path: str, csv_path: str) -> None:
+
+def json_to_csv(json_path: str, csv_path: str) -> None:  # 1
     jp = Path(json_path)
     if jp.suffix != ".json":
         raise ValueError("Неверный тип файла")
     if not jp.exists():
-        raise FileNotFoundError(f"Файл {json_path} не найден")
-    with open(json_path,"r", encoding="utf-8") as f:
+        raise FileNotFoundError("Файл не найден")
+    with open(json_path, "r", encoding="utf-8") as f:
         data = json.load(f)
-    if len(data)==0:
+    if len(data) == 0:
         raise ValueError("Пустой JSON")
     headers = list(data[0])
     with open(csv_path, "w", newline="", encoding="utf-8") as f:
@@ -17,19 +19,17 @@ def json_to_csv(json_path: str, csv_path: str) -> None:
         writer.writeheader()
         writer.writerows(data)
 
-def csv_to_json(csv_path: str, json_path: str) -> None:
+
+def csv_to_json(csv_path: str, json_path: str) -> None:  # 2
     cp = Path(csv_path)
     if cp.suffix != ".csv":
         raise ValueError("Неверный тип файла")
     if not cp.exists():
         raise FileNotFoundError("Файл не найден")
-    with open(csv_path,"r", encoding="utf-8") as f:
+    with open(csv_path, "r", encoding="utf-8") as f:
         reader = csv.DictReader(f)
         rows = list(reader)
     if len(rows) == 0:
         raise ValueError("Пустой CSV")
-    with open(json_path,"w", encoding="utf-8") as f:
+    with open(json_path, "w", encoding="utf-8") as f:
         json.dump(rows, f, ensure_ascii=False, indent=2)
-
-json_to_csv("data/samples/people.json", "data/out/people_from_json.csv")
-csv_to_json("data/samples/people.csv", "data/out/people_from_csv.json")

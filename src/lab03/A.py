@@ -1,5 +1,4 @@
-from src.lib.text import normalize, tokenize, top_n, count_freq
-
+from src.lib.text import count_freq, normalize, tokenize, top_n
 
 print(normalize("ПрИвЕт\nМИр\t"))
 print(normalize("ёжик, Ёлка", yo2e=True))

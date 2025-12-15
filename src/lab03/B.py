@@ -1,5 +1,6 @@
 import sys
-from src.lib.text import count_freq, top_n, normalize, tokenize
+
+from src.lib.text import count_freq, normalize, tokenize, top_n
 
 text = sys.stdin.read()
 

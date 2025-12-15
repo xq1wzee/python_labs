@@ -1,11 +1,14 @@
-from src.lab04.io_txt_csv import read_text, write_csv
-from src.lib.text import count_freq, top_n, normalize, tokenize
 from pathlib import Path
+
+from src.lab04.io_txt_csv import read_text, write_csv
+from src.lib.text import count_freq, normalize, tokenize, top_n
+
 
 def text_progress(text):
     tokens = tokenize(normalize(text))
     freq = count_freq(tokens)
     return tokens, freq
+
 
 in_path = Path("src/data/lab04/input.txt")
 out_path = Path("src/data/lab04/report.csv")
