@@ -562,7 +562,7 @@ from pathlib import Path
 
 import pytest
 
-from src.lib.json_csv import csv_to_json, json_to_csv
+from src.lab05.json_csv import csv_to_json, json_to_csv
 
 
 def write_json(path: Path, obj):
@@ -631,7 +631,7 @@ from pathlib import Path
 
 import pytest
 
-from src.lib.json_csv import csv_to_json, json_to_csv
+from src.lab05.json_csv import csv_to_json, json_to_csv
 
 
 def write_json(path: Path, obj):
@@ -686,7 +686,7 @@ def test_missing_file_raises():
 ```
 
 ### pyproject.toml
-```toml
+```
 [tool.black]
 line-length = 88
 target-version = ["py311"]
@@ -710,9 +710,9 @@ ignore = ["E501"]
 ```
 
 ### pytest.ini
-```ini
+```
 [pytest]
-addopts = -q
+pythonpath = .
 testpaths = tests
 ```
 
@@ -724,7 +724,7 @@ testpaths = tests
 black --check .
 ```
 
-![Картинка 5.2.1](../../images/lab07/black_check.png)
+![black](./images/lab07/07_1.png)
 
 ### Ruff
 
@@ -732,11 +732,11 @@ black --check .
 ruff check .
 ```
 
-![Картинка 5.2.1](../../images/lab07/ruff_check.png)
+![ruff](./images/lab07/07_2.png)
 
 ## Tests Report
 
-![Картинка 5.2.1](../../images/lab07/test_report.png)
+![test](./images/lab07/07_3.png)
 
 
 
