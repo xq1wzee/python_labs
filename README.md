@@ -790,7 +790,7 @@ class Student:
 
 ---
 
-# Задание B — Реализовать модуль `serialize.py`
+## Задание B — Реализовать модуль `serialize.py`
 **Файл:** `serialize.py`  
 ```
 import json
@@ -827,7 +827,7 @@ def students_from_json(path):
 
 ---
 
-### Результаты тестов:
+## Результаты тестов:
 ![Test](./images/lab08/1.png)
 
 ![Test](./images/lab08/2.png)
