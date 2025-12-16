@@ -54,3 +54,8 @@
    - Скриншоты: `images/lab10/`
    - *[README](src/lab10/README.md/)*
 
+---
+
+![Муська](../../images/musia/1.png)
+
+---
