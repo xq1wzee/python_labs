@@ -56,6 +56,6 @@
 
 ---
 
-![Муська](./images/musia/1.png)
+![Муська](images/musia/1.png)
 
 ---
