@@ -44,12 +44,12 @@
    - Скриншоты: `images/lab08/`
    - *[README](src/lab08/README.md/)*
 
-9. **«База данных» на CSV: класс Group, CRUD-операции и CLI** — ❓ ️️
+9. **«База данных» на CSV: класс Group, CRUD-операции и CLI** — ✅ ️️
    - Код: `src/lab09/`
    - Скриншоты: `images/lab09/`
    - *[README](src/lab09/README.md/)*
 
-10. **Структуры данных: Stack, Queue, Linked List и бенчмарки** — ❓ ️️
+10. **Структуры данных: Stack, Queue, Linked List и бенчмарки** — ✅ ️️
    - Код: `src/lab10/`
    - Скриншоты: `images/lab10/`
    - *[README](src/lab10/README.md/)*
